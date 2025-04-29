@@ -1,0 +1,42 @@
+# General configuration
+prefix              = "data-platform"
+resource_group_name = "data-platform-rg"
+location            = "eastus"
+kubeconfig_path     = "~/.kube/config"
+
+# Default tags for resources
+tags = {
+  environment = "development"
+  project     = "data-platform"
+  owner       = "data-team"
+  terraform   = "true"
+}
+
+# Kubernetes configuration
+default_node_count  = 3
+default_node_size   = "Standard_D4s_v3"
+
+# Storage configuration
+minio_storage_size              = 100  # GB
+qdrant_storage_size             = 20   # GB  
+rdf_graph_storage_size          = 20   # GB
+storage_account_tier            = "Standard"
+storage_account_replication_type = "LRS"
+
+# Compute configuration
+trino_cpu_limit    = "2"
+trino_memory_limit = "4096Mi"
+
+# Feature flags
+n8n_enabled              = true
+langchain_enabled        = true
+azure_ai_services_enabled = true
+
+# Azure services configuration (uncomment and set if needed)
+# azure_openai_api_key    = ""
+# azure_ai_key            = ""
+# microsoft_app_id        = ""
+# microsoft_app_password  = ""
+# azure_devops_url        = ""
+# azure_devops_token      = ""
+# azure_devops_pool       = "Default"
